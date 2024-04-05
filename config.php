@@ -1,0 +1,8 @@
+<?php
+//Pøístupové údaje k databázi
+$servername="localhost";
+$username="php";
+$password="hesl0php";
+$dbname="serych";
+
+?>
