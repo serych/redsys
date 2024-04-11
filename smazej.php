@@ -1,9 +1,5 @@
 <?php
-session_start();
-echo "<!DOCTYPE html>\n";
-mysqli_report(MYSQLI_REPORT_ERROR);
-ini_set('display_errors',1);
-include "config.php";
+require_once "uvod.php";
 ?>
 <html>
 <head>
@@ -11,13 +7,7 @@ include "config.php";
 </head>
 <body>
 <?php
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once "dbopen.php";
 // Ověření přihlášení uživatele
 if (!isset($_SESSION['user'])) {
   echo "<h2>Pro smazání článku musí být uživatel přihlášen!</h2>\n";

@@ -1,9 +1,5 @@
 <?php
-session_start();
-echo "<!DOCTYPE html>\n";
-mysqli_report(MYSQLI_REPORT_ERROR);
-ini_set('display_errors',1);
-include "config.php";
+require_once "uvod.php";
 ?>
 <html>
 <head>
@@ -11,12 +7,7 @@ include "config.php";
 </head>
 <body>
 <?php
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once "dbopen.php";
 
 if ($_SERVER['REQUEST_METHOD']=="POST") { // do stránky jsme vlezli metodou POST
   // Tady vložíme do db

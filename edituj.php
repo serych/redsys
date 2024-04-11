@@ -1,23 +1,13 @@
 <?php
-session_start();
-echo "<!DOCTYPE html>\n";
-mysqli_report(MYSQLI_REPORT_ERROR);
-ini_set('display_errors',1);
-include "config.php";
+require_once "uvod.php";
 ?>
 <html>
 <head>
-<script src="/php-pa/ckeditor/ckeditor.js"></script>
+<script src="/php-ct/ckeditor/ckeditor.js"></script>
 <title>Úpravy</title>
 </head>
 <?php
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once "dbopen.php";
 // Ověření přihlášení uživatele
 if (!isset($_SESSION['user'])) {
   echo "<p>User: NEPŘIHLÁŠEN</p>\n";

@@ -1,8 +1,5 @@
-<!DOCTYPE html>
 <?php
-mysqli_report(MYSQLI_REPORT_ERROR);
-ini_set('display_errors',1);
-include "config.php";
+require_once "uvod.php";
 ?>
 <html>
 <head>
@@ -10,13 +7,7 @@ include "config.php";
 </head>
 <body>
 <?php
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once "dbopen.php";
 
 if ($_SERVER['REQUEST_METHOD']=="POST") { // do stránky jsme vlezli metodou POST
   // Tady vložíme uživatele do db
@@ -28,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") { // do stránky jsme vlezli metodou POS
   //automatický skok na index.php
   header('Location: index.php');
 } else {  // do stránky jsme vlezli metodou GET - vypíšeme formulář
-  echo "<form method=\"POST\" action=\"register.php\">
+  echo "<form method=\"POST\" action=\"registrate.php\">
     Username: 
     <input type=\"text\" name=\"fuser\"><br>
     Password: 

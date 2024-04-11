@@ -1,9 +1,5 @@
 <?php
-session_start();
-echo "<!DOCTYPE html>\n";
-mysqli_report(MYSQLI_REPORT_ERROR);
-ini_set('display_errors',1);
-include "config.php";
+require_once "uvod.php";
 ?>
 <html>
 <head>
